@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <?php
+if(!isset($POST['submit']))
+{
+    $user=$_POST['sname'];
+    $mai=$_POST['mail'];
+    $pass=$_POST['pas'];
+    $con=mysqli_connect("localhost","root","paraCHUTE1!","sample");
+    $sql="SELECT * from datam where name='$user' AND email='$mai' AND pass='$pass' ";
+    $result=mysqli_query($con,$sql);
+    $resultcheck=mysqli_num_rows($result);
+    if($resultcheck>0)
+    {
+        echo "Login Successful";
+    }
+    else{
+        echo "Invalid-Login";
+    }
+}
+
+
+
+?> 
+    </body>
+</html>

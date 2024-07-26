@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allocate Seats</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Allocate Seats</h1>
+  <div class="container">
+    <form action="allocate_seats.php" method="post">
+      <label for="route">Select Route:</label>
+      <select name="route" id="route">
+     Options will be populated dynamically from database
+      </select><br><br>
+      
+      <label for="studentCount">Enter Student Count:</label>
+      <input type="number" id="studentCount" name="studentCount" min="1" required><br><br>
+
+      <button type="submit">Allocate Seats</button>
+    </form>
+  </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allocate Seats</title>
+  <link rel="stylesheet" href="allosa.css">
+</head>
+<body>
+  <h1>Allocate Seats</h1>
+
+  <div class="container">
+    <form id="allocationForm">
+      <label for="route" id="selrou">Select Route:</label>
+      <select id="route" name="route"></select>
+
+      <label for="studentCount" id="entstud">Enter Students Count:</label>
+      <input type="number" id="studentCount" name="studentCount" min="1" required>
+      
+      <button type="button" id="btn" onclick="calculateBuses()">Allocate Seats</button>
+    </form>
+
+    <form action="res.php" method="post">
+      <button type="submit" id="btn1">RESET</button>
+    </form>
+    
+    
+    <!-- <div id="result" style="display: none;">
+      <h2>Allocation Result</h2>
+      <p id="busCount">
+        
+      </p>
+    </div> -->
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
+

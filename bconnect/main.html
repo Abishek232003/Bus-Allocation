@@ -1,0 +1,105 @@
+<html>
+    <title>B-Connect : Allocator </title>
+
+    <link rel="stylesheet" href="mcss.css">
+    <style>
+        #TextBoxContainer {
+    display: flex; 
+    flex-wrap: wrap; /
+    
+}
+.remove {
+    height: 40px;
+    padding: 5px 10px;
+    background-color:rgb(244, 142, 142);  
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.remove:hover {
+    background-color: rgb(179, 85, 85); 
+}
+.dynamic-textbox {
+    margin-left: 150px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;
+    width: 200px;
+}
+.dynamic-textbox:focus{
+    font-size: 20px;
+    box-shadow: 0 4px 800px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("#btnAdd").bind("click", function () {
+        var div = $("<div />");
+        div.html(GetDynamicTextBox(""));
+        div.find('input[type="text"]').addClass('dynamic-textbox');
+        $("#TextBoxContainer").append(div);
+        var div1 = $("<div />");
+        div1.html(GetDynamicTextBox(""));
+        div1.find('input[type="text"]').addClass('dynamic-textbox');
+        $("#TextBoxContainer").append(div1);
+        var div2 = $("<div />");
+        div2.html(GetDynamicTextBox(""));
+        div2.find('input[type="text"]').addClass('dynamic-textbox');
+        $("#TextBoxContainer").append(div2);
+    });
+    $("#btnGet").bind("click", function () {
+        var values = "";
+        $("input[name=DynamicTextBox]").each(function () {
+            values += $(this).val() + "\n";
+        });
+        alert(values);
+    });
+    $("body").on("click", ".remove", function () {
+        $(this).closest("div").remove();
+    });
+});
+function GetDynamicTextBox(value) {
+    return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />&nbsp;' +
+            '<input type="button" value="Remove" class="remove" />'
+}
+</script>
+    <body>
+        <div id="head">
+        <h1>B-Connect : Automatic Bus Allocator</h1>
+        <h2>Logged in as _____ </h2>
+        </div>
+
+
+        <div id="main">
+            
+            <h1>Bus Number</h1>
+            <h1>Total Seats</h1>
+            <h1>Stoppings Count</h1>
+            
+            
+        <form name="alloc">
+        <input id="btnAdd" type="button" value="Add" />
+        <br />
+        <br />
+        <div id="TextBoxContainer">
+    
+        </div>
+
+        <br />
+        <input id="btnGet" type="button" value="Allocate" />
+        </form>
+<!-- <img src="C:\wamp64\www\learner\OIG3-removebg-preview.png">         -->
+    </body>
+        
+
+        
+
+
+</html>
